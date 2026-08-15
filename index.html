@@ -1,0 +1,130 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For You ☕</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="particles" id="particles"></div>
+
+  <main class="stage">
+
+    <!-- ========== 1. COMPLIMENTS ========== -->
+    <section class="screen" id="compliment-screen">
+      <div class="card">
+        <div class="card-glow"></div>
+        <span class="emoji">✨</span>
+        <h1 class="title">Hey beautiful Cheerypieww </h1>
+        <p class="lead" id="compliment-text"></p>
+        <button class="btn btn-yes" id="next-to-invite">Continue</button>
+      </div>
+    </section>
+
+    <!-- ========== 2. INVITATION ========== -->
+    <section class="screen hidden" id="invite-screen">
+      <div class="card">
+        <div class="card-glow"></div>
+        <span class="emoji">☕</span>
+        <h1 class="title">A quiet invitation from Saqib Ali </h1>
+        <p class="subtitle">just for you</p>
+        <div class="divider"><span></span><span class="dot">✦</span><span></span></div>
+        <p class="lead">
+          Would you like to share a warm cup of coffee with me?
+        </p>
+        <p class="secondary">
+          No big plans. Just soft conversations and a little time that feels like ours.
+        </p>
+        <button class="btn btn-yes" id="next-to-date">Yes, I’d love that</button>
+        <button class="btn btn-soft" id="maybe-btn" style="margin-top:0.7rem">Maybe later…</button>
+      </div>
+    </section>
+
+    <!-- ========== 3. SELECT DATE ========== -->
+    <section class="screen hidden" id="date-screen">
+      <div class="card">
+        <div class="card-glow"></div>
+        <span class="emoji">📅</span>
+        <h1 class="title">When would you like?</h1>
+        <p class="secondary" style="margin-bottom:1.4rem">Pick a day that feels good</p>
+
+        <div class="options" id="date-options">
+          <button class="option-btn" data-date="This Weekend">This Weekend</button>
+          <button class="option-btn" data-date="Next Week">Next Week</button>
+          <button class="option-btn" data-date="Whenever you're free">Whenever you're free</button>
+          <button class="option-btn" data-date="You decide the day">You decide the day</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 4. SELECT PLACE (DELHI) ========== -->
+    <section class="screen hidden" id="place-screen">
+      <div class="card">
+        <div class="card-glow"></div>
+        <span class="emoji">📍</span>
+        <h1 class="title">Where in Delhi?</h1>
+        <p class="secondary" style="margin-bottom:1.4rem">Choose a place you love</p>
+
+        <div class="options" id="place-options">
+          <button class="option-btn" data-place="Khan Market">Khan Market</button>
+          <button class="option-btn" data-place="Connaught Place">Connaught Place</button>
+          <button class="option-btn" data-place="Hauz Khas Village">Hauz Khas Village</button>
+          <button class="option-btn" data-place="Saket (Select City)">Saket (Select City)</button>
+          <button class="option-btn" data-place="You choose the café">You choose the café</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 5. FINAL CONFIRMATION ========== -->
+    <section class="screen hidden" id="final-screen">
+      <div class="card">
+        <div class="card-glow"></div>
+        <span class="emoji">🎉</span>
+        <h1 class="title">It’s a date</h1>
+        <p class="secondary" style="margin-bottom:1.2rem">I’m really looking forward to this</p>
+
+        <div class="summary">
+          <div class="summary-item">
+            <span>📅</span>
+            <span id="chosen-date">—</span>
+          </div>
+          <div class="summary-item">
+            <span>📍</span>
+            <span id="chosen-place">—</span>
+          </div>
+        </div>
+
+        <p class="secondary" style="margin-top:1.4rem">
+          I’ll message you soon to fix the exact time.
+        </p>
+        <button class="btn btn-yes" id="finish-btn" style="margin-top:1.5rem">Done ☕</button>
+      </div>
+    </section>
+
+    <!-- ========== MAYBE ========== -->
+    <section class="screen hidden" id="maybe-screen">
+      <div class="card">
+        <span class="emoji">🌙</span>
+        <h1 class="title">No rush at all</h1>
+        <p class="secondary">
+          The invitation stays open.<br>
+          Whenever you’re ready, I’ll be here.
+        </p>
+        <button class="btn btn-soft" id="back-from-maybe" style="margin-top:1.6rem">Back</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
