@@ -53,18 +53,26 @@ document.getElementById('place-options').addEventListener('click', function(e) {
   }
 });
 
-// WhatsApp Button
+// Instagram Button
 document.getElementById('finish-btn').onclick = function() {
-  // 🔴 CHANGE THIS to your number (example: 919876543210)
-  const number = "917409020802";
+
+  // 🔴 Put your Instagram username here (without @)
+  const instagramUsername = "_saqibali__";   // Example: "rahul_sharma"
 
   const message = `Hey! I selected the coffee date ☕
 
 📅 Date: ${selectedDate}
 📍 Place: ${selectedPlace}`;
 
-  window.open(`https://wa.me/${number}?text=${encodeURIComponent(message)}`, '_blank');
+  // Copy message to clipboard
+  navigator.clipboard.writeText(message).then(() => {
+    alert("Message copied!\n\nNow just paste it in Instagram and send ☕");
+    
+    // Open Instagram DM
+    window.open(`https://ig.me/m/${instagramUsername}`, '_blank');
+  }).catch(() => {
+    // If clipboard fails, still open Instagram
+    window.open(`https://ig.me/m/${instagramUsername}`, '_blank');
+    alert("Please copy this message and send it:\n\n" + message);
+  });
 };
-
-// Start
-typeWriter();
