@@ -94,7 +94,7 @@ document.getElementById('place-options').addEventListener('click', (e) => {
     e.target.classList.add('selected');
     selectedPlace = e.target.dataset.place;
 
-    // Show on screen
+    // Show selected values
     document.getElementById('chosen-date').textContent = selectedDate;
     document.getElementById('chosen-place').textContent = selectedPlace;
 
@@ -104,10 +104,12 @@ document.getElementById('place-options').addEventListener('click', (e) => {
   }
 });
 
-// WhatsApp button
+// ===== WhatsApp Button =====
 document.getElementById('finish-btn').addEventListener('click', () => {
-  // ⚠️ Put your WhatsApp number here (with country code, no + or spaces)
-  const phoneNumber = "917409020802";   // Example: 919876543210
+
+  // ⚠️ CHANGE THIS to your WhatsApp number
+  // Example: 919876543210  (91 + your 10 digit number)
+  const phoneNumber = "91740900802";
 
   const message = `Hey! I just filled the coffee date invitation ☕
 
@@ -119,4 +121,10 @@ Looking forward to it!`;
   const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
   
   window.open(whatsappURL, '_blank');
+});
+
+// ===== Init =====
+document.addEventListener('DOMContentLoaded', () => {
+  createParticles();
+  typeCompliment();
 });
