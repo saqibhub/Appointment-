@@ -10,7 +10,7 @@ const screens = {
 let selectedDate = '';
 let selectedPlace = '';
 
-// ===== Particles =====
+// Particles
 function createParticles() {
   const symbols = ['☕', '♡', '✦', '·'];
   const container = document.getElementById('particles');
@@ -26,105 +26,83 @@ function createParticles() {
   }
 }
 
-// ===== Typewriter for compliments =====
+// Typewriter
 const compliments = [
   "You have this quiet kind of beauty that makes everything around you feel softer.",
   "There’s something about your smile that feels like home.",
   "You make ordinary moments feel a little more special."
 ];
 
-let currentCompliment = 0;
-const complimentEl = document.getElementById('compliment-text');
-
 function typeCompliment() {
-  const text = compliments[currentCompliment];
+  const text = compliments[0];
   let i = 0;
-  complimentEl.textContent = '';
-  
+  const el = document.getElementById('compliment-text');
+  el.textContent = '';
+
   function type() {
     if (i < text.length) {
-      complimentEl.textContent += text.charAt(i);
+      el.textContent += text.charAt(i);
       i++;
-      setTimeout(type, 32 + Math.random() * 25);
+      setTimeout(type, 35);
     }
   }
   type();
 }
 
-// ===== Screen switch =====
 function show(screenName) {
   Object.values(screens).forEach(s => s.classList.add('hidden'));
   screens[screenName].classList.remove('hidden');
 }
 
-// ===== Events =====
-document.getElementById('next-to-invite').addEventListener('click', () => {
-  show('invite');
-});
+// Buttons
+document.getElementById('next-to-invite').addEventListener('click', () => show('invite'));
+document.getElementById('next-to-date').addEventListener('click', () => show('date'));
+document.getElementById('maybe-btn').addEventListener('click', () => show('maybe'));
+document.getElementById('back-from-maybe').addEventListener('click', () => show('invite'));
 
-document.getElementById('next-to-date').addEventListener('click', () => {
-  show('date');
-});
-
-document.getElementById('maybe-btn').addEventListener('click', () => {
-  show('maybe');
-});
-
-document.getElementById('back-from-maybe').addEventListener('click', () => {
-  show('invite');
-});
-
-// Date selection
-document.getElementById('date-options').addEventListener('click', (e) => {
+// Date select
+document.getElementById('date-options').addEventListener('click', function(e) {
   if (e.target.classList.contains('option-btn')) {
-    document.querySelectorAll('#date-options .option-btn').forEach(b => b.classList.remove('selected'));
-    e.target.classList.add('selected');
     selectedDate = e.target.dataset.date;
-
-    setTimeout(() => {
-      show('place');
-    }, 400);
+    document.querySelectorAll('#date-options .option-btn').forEach(btn => btn.classList.remove('selected'));
+    e.target.classList.add('selected');
+    setTimeout(() => show('place'), 300);
   }
 });
 
-// Place selection
-document.getElementById('place-options').addEventListener('click', (e) => {
+// Place select
+document.getElementById('place-options').addEventListener('click', function(e) {
   if (e.target.classList.contains('option-btn')) {
-    document.querySelectorAll('#place-options .option-btn').forEach(b => b.classList.remove('selected'));
-    e.target.classList.add('selected');
     selectedPlace = e.target.dataset.place;
+    document.querySelectorAll('#place-options .option-btn').forEach(btn => btn.classList.remove('selected'));
+    e.target.classList.add('selected');
 
-    // Show selected values
     document.getElementById('chosen-date').textContent = selectedDate;
     document.getElementById('chosen-place').textContent = selectedPlace;
 
-    setTimeout(() => {
-      show('final');
-    }, 400);
+    setTimeout(() => show('final'), 300);
   }
 });
 
-// ===== WhatsApp Button =====
-document.getElementById('finish-btn').addEventListener('click', () => {
+// ========== WhatsApp Button ==========
+document.getElementById('finish-btn').addEventListener('click', function() {
 
-  // ⚠️ CHANGE THIS to your WhatsApp number
-  // Example: 919876543210  (91 + your 10 digit number)
-  const phoneNumber = "91740900802";
+  // 🔴 CHANGE THIS NUMBER
+  const myNumber = "917409020802";   // ← Put your number here (example: 919876543210)
 
-  const message = `Hey! I just filled the coffee date invitation ☕
+  const text = `Hey! I selected the coffee date ☕
 
 📅 Date: ${selectedDate}
-📍 Place: ${selectedPlace}
+📍 Place: ${selectedPlace}`;
 
-Looking forward to it!`;
+  const url = `https://wa.me/${myNumber}?text=${encodeURIComponent(text)}`;
 
-  const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-  
-  window.open(whatsappURL, '_blank');
+  // Open WhatsApp
+  window.open(url, '_blank');
 });
 
-// ===== Init =====
-document.addEventListener('DOMContentLoaded', () => {
+// Start
+document.addEventListener('DOMContentLoaded', function() {
   createParticles();
   typeCompliment();
 });
