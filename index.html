@@ -84,47 +84,32 @@
       </div>
     </section>
 
-    <!-- ========== 5. FINAL CONFIRMATION ========== -->
+        <!-- ========== 5. FINAL CONFIRMATION ========== -->
     <section class="screen hidden" id="final-screen">
       <div class="card">
         <div class="card-glow"></div>
         <span class="emoji">🎉</span>
-        <h1 class="title">It’s a date</h1>
-        <p class="secondary" style="margin-bottom:1.2rem">I’m really looking forward to this</p>
+        <h1 class="title">It’s a date!</h1>
+        <p class="secondary" style="margin-bottom:1.5rem">Here’s what you chose</p>
 
         <div class="summary">
           <div class="summary-item">
-            <span>📅</span>
-            <span id="chosen-date">—</span>
+            <div class="summary-label">Date</div>
+            <div class="summary-value" id="chosen-date">—</div>
           </div>
+          <div class="summary-divider"></div>
           <div class="summary-item">
-            <span>📍</span>
-            <span id="chosen-place">—</span>
+            <div class="summary-label">Place</div>
+            <div class="summary-value" id="chosen-place">—</div>
           </div>
         </div>
 
-        <p class="secondary" style="margin-top:1.4rem">
-          I’ll message you soon to fix the exact time.
+        <p class="secondary" style="margin-top:1.5rem">
+          Click the button below to confirm
         </p>
-        <button class="btn btn-yes" id="finish-btn" style="margin-top:1.5rem">Done ☕</button>
+
+        <button class="btn btn-yes" id="finish-btn" style="margin-top:1.3rem">
+          Confirm on WhatsApp 💬
+        </button>
       </div>
     </section>
-
-    <!-- ========== MAYBE ========== -->
-    <section class="screen hidden" id="maybe-screen">
-      <div class="card">
-        <span class="emoji">🌙</span>
-        <h1 class="title">No rush at all</h1>
-        <p class="secondary">
-          The invitation stays open.<br>
-          Whenever you’re ready, I’ll be here.
-        </p>
-        <button class="btn btn-soft" id="back-from-maybe" style="margin-top:1.6rem">Back</button>
-      </div>
-    </section>
-
-  </main>
-
-  <script src="script.js"></script>
-</body>
-</html>
